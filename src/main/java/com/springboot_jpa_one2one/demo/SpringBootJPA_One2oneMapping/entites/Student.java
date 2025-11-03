@@ -12,10 +12,25 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int student_id;
 
-    public Student(String student_name, String mobile) {
+    public Student(String student_name, String mobile,Address address) {
         this.student_name = student_name;
         this.mobile = mobile;
+        this.address=address;
     }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    //******************Mapping********************//
+    @OneToOne
+    @JoinColumn(name = "Address_id")
+    private Address address;
+    //******************Mapping********************//
 
     private String student_name;
     private String mobile;
@@ -45,5 +60,15 @@ public class Student {
 
     public void setMobile(String mobile) {
         this.mobile = mobile;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "student_id=" + student_id +
+                ", address=" + address +
+                ", student_name='" + student_name + '\'' +
+                ", mobile='" + mobile + '\'' +
+                '}';
     }
 }

@@ -55,4 +55,14 @@ public class Address {
     }
 
     private String Street;
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "Address_id=" + Address_id +
+                ", House_details='" + House_details + '\'' +
+                ", City='" + City + '\'' +
+                ", Street='" + Street + '\'' +
+                '}';
+    }
 }
